@@ -9,12 +9,12 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       primaryKey: true,
       allowNull: true,
-      // unique: true
+      unique: true
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: true,
-      // unique: true
+      unique: true
     }
   },
     {

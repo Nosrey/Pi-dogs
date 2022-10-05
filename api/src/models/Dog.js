@@ -11,22 +11,25 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
-    altura: {
+    height: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    peso: {
+    weight: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    años_de_vida: {
+    life_span: {
       type: DataTypes.STRING,
       allowNull: true
     }
-  });
+  }, {
+		initialAutoIncrement: 1000
+	});
 };
+
