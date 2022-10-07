@@ -151,7 +151,7 @@ function VerRazas({ breeds, breeds_filtereds, getBreeds, getBreedsByFilter, getB
       <button onClick={() => handlePaginaChange(-8)}>Prev</button>
 
       {dogs.slice(pagina, pagina + 8).map(el => {
-        return <Raza key={el.id} id={el.id} name={el.name} origin={el.origin} image={el.image} temperament={el.temperament} weight={el.weight} />
+        return <Raza key={el.id} id={el.id} name={el.name} image={el.image} temperament={el.temperament} weight={el.weight} />
       })}
     </div>
   )

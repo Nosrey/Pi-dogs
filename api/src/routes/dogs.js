@@ -72,7 +72,16 @@ router.get('/', async (req, res) => {
                 }
                 let puppies = await Dog.findAll({ include: Temperament });
                 Object.values(puppies).map(el => {
-                    respuesta.push(el)
+                    let fixed = {
+                        weight: {metric: el.weight},
+                        height: {metric: el.height},
+                        id: el.id,
+                        name: el.name,
+                        life_span: el.life_span,
+                        temperament: el.Temperaments.map(el => el = el.name).join(', '),
+                        image: {url: el.image}
+                    }
+                    respuesta.push(fixed)
                 })
                 let final = [];
                 if (name) {
@@ -107,9 +116,8 @@ router.get('/', async (req, res) => {
 router.get('/prueba', async (req, res) => {
     try {
         const users = await Dog.findAll({ include: Temperament });
-        let prueba = users
-        prueba[0].pruebacham = '1000';
-        res.send(prueba)
+
+        res.send(users)
     } catch {
         return null
     }
@@ -139,18 +147,19 @@ router.get('/:idRaza', async (req, res) => {
 // })
 
 router.post('/', async (req, res) => {
-    const { nombre_raza, altura_raza, peso_raza, años_de_vida_raza, nombre_temp } = req.body
+    const { name, height, weight, life, temperaments, image } = req.body
 
-    if (!nombre_raza || !altura_raza || !peso_raza) return res.status(404).send('faltan datos por proveer')
+    if (!name || !height || !weight || !life || !temperaments || !image) return res.status(404).send('faltan datos por proveer')
     const dog = await Dog.create({
-        name: nombre_raza,
-        height: altura_raza,
-        weight: peso_raza,
-        life_span: años_de_vida_raza,
+        name: name,
+        height: height,
+        weight: weight,
+        life_span: life,
+        image: image,
     })
 
-    nombre_temp.map(async el => {
-        let tempEl = await Temperament.findByPk(el)
+    temperaments.map(async el => {
+        let tempEl = await Temperament.findByPk(el + 1)
         dog.addTemperament(tempEl, { through: 'Dog_Temperament' })
     })
 

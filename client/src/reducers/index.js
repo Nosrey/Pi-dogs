@@ -1,8 +1,9 @@
-import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS } from '../actions/actions-types.js';
+import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS, GET_TEMPERAMENTS } from '../actions/actions-types.js';
 
 const initialState = {
     breeds: [],
-    breeds_filtereds: []
+    breeds_filtereds: [],
+    temperaments: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -23,6 +24,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 breeds_filtereds: action.payload
             }
+        case GET_TEMPERAMENTS:
+            return {
+                ...state,
+                temperaments: action.payload
+            }
+
         default:
             return state;
     }

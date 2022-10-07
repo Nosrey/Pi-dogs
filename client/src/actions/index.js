@@ -1,4 +1,4 @@
-import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS } from './actions-types.js';
+import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS, GET_TEMPERAMENTS, POST_BREED } from './actions-types.js';
 
 export function getBreeds() {
     return function (dispatch) {
@@ -36,6 +36,18 @@ export function getBreedsByTemps(data) {
                 }
                 dispatch({ type: GET_BREEDS_BY_TEMPS, payload: final })
             })
+        )
+    }
+}
+
+export function getTemperaments() {
+    return function (dispatch) {
+        return (
+            fetch("http://localhost:3001/temperaments")
+                .then(res => res.json())
+                .then(response => {
+                    dispatch({ type: GET_TEMPERAMENTS, payload: response })
+                })
         )
     }
 }

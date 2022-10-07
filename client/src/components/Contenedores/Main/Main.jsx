@@ -9,6 +9,7 @@ export default function Main() {
         <div>
             <Nav/>
             <Link to='/'><h1>Go Home</h1></Link>
+            <Link to='/others/CreateBreed'><h1>Go to create breed</h1></Link>
             <VerRazas/>
         </div>
     )
