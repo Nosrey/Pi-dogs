@@ -1,0 +1,10 @@
+.main-2 {
+    background-image: url('https://img.freepik.com/free-vector/frame-with-dogs-vector-white-background_53876-127700.jpg?w=2000');
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
+}
+.allSize {
+    height: 100%;
+    padding: 0 5%;
+}

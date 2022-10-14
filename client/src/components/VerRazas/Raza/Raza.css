@@ -1,8 +1,85 @@
-.Main {
-    border: 2px solid black;
-    padding: 2%;
+.main-4 {
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 20%;
+  display: flex;
+  padding: 1%;
+  margin: 0 auto;
+  flex-flow: column;
+  align-items: center;
+  margin: 1% auto;
+  text-align: center;
+  height: 80%;
+  align-self: stretch;
 }
 
-img {
-    width: 30%;
+.main-4 img {
+  width: 80%;
+  height: auto;
+  border: 10px solid transparent;
+  padding: 0px;
+  border-image: url(border.png) 30 stretch;
+}
+
+.main-4 h3 {
+  margin: 0.3%;
+}
+
+.links {
+  text-decoration: none;
+  margin: 5%;
+}
+
+.dog-button {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.dog-button:hover,
+.dog-button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.dog-button:hover {
+  transform: translateY(-1px);
+}
+
+.dog-button:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+@media (max-width: 980px) {
+  .main-4 {
+    width: 100%;
+  }
 }

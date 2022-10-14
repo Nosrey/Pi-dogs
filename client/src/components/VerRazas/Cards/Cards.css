@@ -1,0 +1,12 @@
+.Cards {
+    width: 90%;
+    height: 100%;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.invisible {
+    display: none;
+}

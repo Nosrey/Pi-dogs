@@ -1,14 +1,10 @@
-const axios = require('axios').default;
 const { Sequelize } = require('sequelize');
 const fetch = (...args) =>
     import('node-fetch').then(({ default: fetch }) => fetch(...args));
 require('dotenv').config();
-const CircularJSON = require('circular-json');
 const { Router } = require('express');
 const { Dog, Temperament } = require('../db')
 const { API_KEY } = process.env;
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
 
@@ -40,25 +36,8 @@ async function traerTemps() {
         return null
     }
 }
-// async function traerTemps() {
-//     await axios.get("https://api.thedogapi.com/v1/breeds", config)
-//         .then(response => {
-//             let arrayFinal = []
-//             Object.values(response.data).map(el => {
-//                 if (el.temperament) {
-//                     el = el.temperament.split(',').map(el => arrayFinal.push(el))
-//                 } else return el = null;
-//             })
-//             arrayFinal = [...new Set(arrayFinal)];
-//             return arrayFinal.map(async el => await Temperament.create({ nombre: el }))
-//         })
-//         .catch(err => console.log(err))
-// }
 
 traerTemps();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 router.get('/', async (req, res) => {
     try {
@@ -73,13 +52,13 @@ router.get('/', async (req, res) => {
                 let puppies = await Dog.findAll({ include: Temperament });
                 Object.values(puppies).map(el => {
                     let fixed = {
-                        weight: {metric: el.weight},
-                        height: {metric: el.height},
+                        weight: { metric: el.weight },
+                        height: { metric: el.height },
                         id: el.id,
                         name: el.name,
                         life_span: el.life_span,
                         temperament: el.Temperaments.map(el => el = el.name).join(', '),
-                        image: {url: el.image}
+                        image: { url: el.image }
                     }
                     respuesta.push(fixed)
                 })
@@ -94,31 +73,6 @@ router.get('/', async (req, res) => {
             })
     }
     catch {
-        return null
-    }
-})
-// router.get('/', async (req, res) => {
-//     const { name } = req.query;
-//     await axios.get("https://api.thedogapi.com/v1/breeds", config)
-//         .then(response => {
-//             let respuesta = Object.values(response.data).map(el => el = el.name)
-//             let final = [];
-//             if (name) {
-//                 for (let i = 0; i < respuesta.length; i++) {
-//                     if (respuesta[i].toLowerCase().includes(name.toLowerCase())) final.push(respuesta[i])
-//                 }
-//             }
-//             if (name) res.send(final)
-//             else res.send(respuesta)
-//         })
-// })
-
-router.get('/prueba', async (req, res) => {
-    try {
-        const users = await Dog.findAll({ include: Temperament });
-
-        res.send(users)
-    } catch {
         return null
     }
 })
@@ -137,14 +91,6 @@ router.get('/:idRaza', async (req, res) => {
         return null
     }
 })
-// router.get('/:idRaza', async (req, res) => {
-//     const { idRaza } = req.params;
-//     await axios.get("https://api.thedogapi.com/v1/breeds", config)
-//         .then(response => {
-//             let respuesta = Object.values(response.data)
-//             res.send(respuesta[idRaza - 1])
-//         })
-// })
 
 router.post('/', async (req, res) => {
     const { name, height, weight, life, temperaments, image } = req.body

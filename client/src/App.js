@@ -1,10 +1,10 @@
 import React from "react";
 import './App.css';
 import { Route } from 'react-router-dom';
-import Home from './components/Contenedores/Home/Home.jsx'
-import Main from './components/Contenedores/Main/Main.jsx'
-import DogsId from './components/VerRazas/DogsId/DogsId.jsx'
-import CreateBreed from './components/Contenedores/CreateBreed/CreateBreed'
+import Home from './components/Home/Home.jsx'
+import Main from './components/Main/Main.jsx'
+import DogsId from './components/DogsId/DogsId.jsx'
+import CreateBreed from './components/CreateBreed/CreateBreed.jsx'
 
 
 function App() {

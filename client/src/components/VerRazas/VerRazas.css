@@ -1,62 +1,220 @@
  /* The switch - the box around the slider */
  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 34px;
+ }
+
+ /* Hide default HTML checkbox */
+ .switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+ }
+
+ /* The slider */
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 26px;
+   width: 26px;
+   left: 4px;
+   bottom: 4px;
+   background-color: white;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+
+ input:checked+.slider {
+   background-color: #422800;
+ }
+
+ input:focus+.slider {
+   box-shadow: 0 0 1px #422800;
+ }
+
+ input:checked+.slider:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+ }
+
+ /* Rounded sliders */
+ .slider.round {
+   border-radius: 34px;
+ }
+
+ .slider.round:before {
+   border-radius: 50%;
+ }
+
+
+ .searchDogs {
+   border-radius: 8px 0 0 8px;
+   border-right: none;
+   background-color: #fffefe;
+   padding: 0.5%;
+   font-size: 1rem;
+   box-shadow: #422800 4px 4px 0 0;
+   font-weight: bold;
+ }
+
+ .sendDogs {
+   border-radius: 0;
+   border-left: none;
+   font-weight: bold;
+   background-color: #fbeee0;
+   padding: 0.5% 0.7%;
+   font-size: 1rem;
+   box-shadow: #422800 4px 4px 0 0;
+ }
+
+ .cancelDogs {
+   border-radius: 0 8px 8px 0;
+   border-left: 2px solid #422800;
+   background-color: #fbeee0;
+   padding: 0.5%;
+   font-size: 1rem;
+   box-shadow: #422800 4px 4px 0 0;
+   font-weight: bold;
+ }
+
+ .cancelDogs:hover,
+ .sendDogs:hover {
+   background-color: #fff;
+ }
+
+ .breedSearcher {
+   display: flex;
+   text-align: center;
+ }
+
+ .breedSearcher i {
+   margin-bottom: 4%;
+   color: #422800;
+   font-weight: bold;
+
+ }
+
+ .breedSearcher nav {
+   margin: auto;
+   display: flex;
+   flex-flow: column;
+   justify-content: space-between;
+ }
+
+ .breedSearcher nav h2 {
+   margin: 2% auto;
+   font-size: 2rem;
+ }
+
+ .breedSearcher nav div {
+   display: flex;
+ }
+
+ .breedSearcher nav div input,
+ .breedSearcher nav div input {
+
+   font-size: 1.5rem;
+ }
+
+ .centerElements {
+   display: flex;
+   justify-content: center;
+ }
+
+ .next {
+   font-family: "Open Sans", sans-serif;
+   font-size: 16px;
+   letter-spacing: 2px;
+   text-decoration: none;
+   text-transform: uppercase;
+   color: #422800;
+   cursor: pointer;
+   border: 3px solid;
+   padding: 0.25em 0.5em;
+   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+   position: relative;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+ }
+
+ .next:active {
+   box-shadow: 0px 0px 0px 0px;
+   top: 5px;
+   left: 5px;
+ }
+
+ @media (min-width: 768px) {
+   .next {
+     padding: 0.25em 0.75em;
+   }
+ }
+
+ .orderBreeds {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-bottom: 1%;
+ }
+
+ .empty-cards {
+   color: #422800;
+   font-weight: bold;
+   font-size: 2rem;
+   text-align: center;
+   margin-bottom: 10%;
+ }
+
+ .pager {
+   color: #422800;
+   font-weight: bold;
+   margin-bottom: 2%;
+   font-style: italic;
+   text-align: center;
+   font-size: 1.3rem;
+ }
+
+ @media (max-width: 980px) {
+  .breedSearcher {
+    margin-bottom: 4%;
   } 
+  
+  .breedSearcher i {
+     margin-bottom: 2%;
+   }
+
+   .breedSearcher nav h2 {
+     font-size: 1.5rem;
+   }
+
+   .breedSearcher nav div input,
+   .breedSearcher nav div input {
+     font-size: 1rem;
+   }
+
+   .breedSearcher .searchDogs {
+    width: 70%;
+   }
+
+   .next {
+    font-size: 0.8rem;
+   }
+
+ }

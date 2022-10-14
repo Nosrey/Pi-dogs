@@ -1,4 +1,4 @@
-import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS, GET_TEMPERAMENTS, POST_BREED } from './actions-types.js';
+import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS, GET_TEMPERAMENTS } from './actions-types.js';
 
 export function getBreeds() {
     return function (dispatch) {
