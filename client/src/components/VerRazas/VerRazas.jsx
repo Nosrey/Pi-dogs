@@ -55,6 +55,7 @@ function VerRazas({ breeds, breeds_filtereds, getBreeds, getBreedsByFilter, getB
   }
 
   function handleSearchButton(e) {
+    setPage(0);
     setLoading(true);
     e.preventDefault();
     if (allowTemps) getBreedsByTemps(filter);
