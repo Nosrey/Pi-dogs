@@ -2,14 +2,13 @@ const fetch = (...args) =>
     import('node-fetch').then(({ default: fetch }) => fetch(...args));
 require('dotenv').config();
 const { Router } = require('express');
-const { API_KEY } = process.env;
 
 const router = Router();
 
 const optionsGet = {
     method: 'GET',
     headers: {
-        'x-api-key': API_KEY,
+        'x-api-key': "live_zSJDtLlxVLa5KBL2eo2Ev7PlmuiI9J01AwUrfeSCIMYAYJNRw5HaRSaUmlHZrqv4",
     }
 };
     
