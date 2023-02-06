@@ -3,7 +3,7 @@ import { GET_BREEDS, GET_BREEDS_BY_FILTER, GET_BREEDS_BY_TEMPS, GET_TEMPERAMENTS
 export function getBreeds() {
     return function (dispatch) {
         return (
-            fetch("https://pi-dogs-production-12d3.up.railway.app/dogs")
+            fetch("http://localhost:3001/dogs")
                 .then(res => res.json())
                 .then(response => {
                     let respuesta = Object.values(response)
@@ -15,7 +15,7 @@ export function getBreeds() {
 
 export function getBreedsByFilter(id) {
     return function (dispatch) {
-        return (fetch(`https://pi-dogs-production-12d3.up.railway.app/dogs?name=${id}`)
+        return (fetch(`http://localhost:3001/dogs?name=${id}`)
             .then(res => res.json())
             .then(json => {
                 dispatch({ type: GET_BREEDS_BY_FILTER, payload: json })
@@ -26,7 +26,7 @@ export function getBreedsByFilter(id) {
 
 export function getBreedsByTemps(data) {
     return function (dispatch) {
-        return (fetch("https://pi-dogs-production-12d3.up.railway.app/dogs")
+        return (fetch("http://localhost:3001/dogs")
             .then(res => res.json())
             .then(response => {
                 let respuesta = Object.values(response)
@@ -43,7 +43,7 @@ export function getBreedsByTemps(data) {
 export function getTemperaments() {
     return function (dispatch) {
         return (
-            fetch("https://pi-dogs-production-12d3.up.railway.app/temperaments")
+            fetch("http://localhost:3001/temperaments")
                 .then(res => res.json())
                 .then(response => {
                     dispatch({ type: GET_TEMPERAMENTS, payload: response })

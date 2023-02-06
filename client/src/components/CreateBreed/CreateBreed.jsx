@@ -152,7 +152,7 @@ function CreaRaza({ getTemperaments, temperaments, getBreeds, breeds }) {
         }
       }
 
-      fetch('https://pi-dogs-production-12d3.up.railway.app/dogs', {
+      fetch('http://localhost:3001/dogs', {
         method: 'POST',
         body: JSON.stringify({ ...input, temperaments: input.temperaments.map(el => el = temperaments.indexOf(el)) }),
         headers: {

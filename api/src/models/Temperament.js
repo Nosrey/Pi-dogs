@@ -19,6 +19,5 @@ module.exports = (sequelize) => {
   },
     {
       initialAutoIncrement: 1000,
-      timestamps: false
     });
 };
