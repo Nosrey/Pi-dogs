@@ -2,9 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const products = require('./routes/products.js');
-const categories = require('./routes/categories.js')
-const histories = require('./routes/histories.js')
+
+const dogs = require('./routes/dogs.js');
+const temperaments = require('./routes/temperaments.js');
 
 require('./db.js');
 
@@ -24,9 +24,8 @@ server.use((req, res, next) => {
     next();
 });
 
-server.use('/products', products);
-server.use('/categories', categories);
-server.use('/histories', histories);
+server.use('/dogs', dogs);
+server.use('/temperaments', temperaments);
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
@@ -58,3 +57,6 @@ module.exports = server;
 //     conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
 //     app: app,
 // };
+
+
+
