@@ -8,9 +8,15 @@ const {
 } = process.env;
 
 const sequelize = new Sequelize(`postgres://chagvvji:3gMVsgQZrHJ9ihRELJf3yLHHOOnd9Rxt@isilo.db.elephantsql.com/chagvvji`, {
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, {
+  dialectModule: pg,
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  pool: {
+    max: 1,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
 });
 const basename = path.basename(__filename);
 
